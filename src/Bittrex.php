@@ -104,7 +104,7 @@ class Bittrex
      *
      * @return array
      */
-    public function getOrderBook(string $market, string $type, int $depth): array
+    public function getOrderBook(string $market, string $type, int $depth = 20): array
     {
         return $this->send('public/getorderbook', compact('market', 'type', 'depth'));
     }
@@ -168,7 +168,7 @@ class Bittrex
      *
      * @return array
      */
-    public function getOpenOrders(string $market): array
+    public function getOpenOrders(?string $market = null): array
     {
         return $this->send('market/getopenorders', compact('market'));
     }
@@ -216,9 +216,9 @@ class Bittrex
      *
      * @return array
      */
-    public function withdraw(string $currency, float $quantity, string $address): array
+    public function withdraw(string $currency, float $quantity, string $address, ?string $paymentid = null): array
     {
-        return $this->send('account/withdraw', compact('currency', 'quantity', 'address'));
+        return $this->send('account/withdraw', compact('currency', 'quantity', 'address', 'paymentid'));
     }
 
     /**
@@ -238,9 +238,9 @@ class Bittrex
      *
      * @return array
      */
-    public function getOrderHistory(): array
+    public function getOrderHistory(?string $market = null): array
     {
-        return $this->send('account/getorderhistory');
+        return $this->send('account/getorderhistory', compact('market'));
     }
 
     /**
@@ -269,6 +269,6 @@ class Bittrex
         $uri   = "https://bittrex.com/api/v1.1/{$path}?apikey={$this->key}&nonce={$nonce}";
 
         return Http::withHeaders(['apisign' => hash_hmac('sha512', $uri, $this->secret)])
-            ->post($uri, $arguments)->json();
+            ->post($uri, array_filter($arguments))->json();
     }
 }
