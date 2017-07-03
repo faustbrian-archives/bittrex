@@ -1,0 +1,44 @@
+{
+    "name": "faustbrian/bittrex",
+    "description": "A developer-experience focused Bittrex client.",
+    "keywords": ["http", "guzzle", "bittrex", "crypto", "trading"],
+    "license": "MIT",
+    "authors": [{
+        "name": "Brian Faust",
+        "email": "hello@brianfaust.de",
+        "homepage": "https://brianfaust.de"
+    }],
+    "repositories": [{
+        "type": "composer",
+        "url": "https://satis.oliotech.solutions"
+    }],
+    "require": {
+        "php": "^7.0",
+        "faustbrian/http": "^1.0@dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^6.1",
+        "laravel/lumen-framework": "5.4.*"
+    },
+    "autoload": {
+        "psr-4": {
+            "BrianFaust\\Bittrex\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "BrianFaust\\Tests\\Bittrex\\": "tests"
+        }
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
