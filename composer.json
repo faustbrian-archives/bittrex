@@ -1,5 +1,5 @@
 {
-    "name": "faustbrian/bittrex",
+    "name": "faustbrian/bittrex-php-client",
     "description": "A developer-experience focused Bittrex client.",
     "keywords": ["http", "guzzle", "bittrex", "crypto", "trading"],
     "license": "MIT",
