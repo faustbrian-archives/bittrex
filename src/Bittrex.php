@@ -11,7 +11,7 @@
 
 namespace BrianFaust\Bittrex;
 
-use BrianFaust\Http\Http;
+use BrianFaust\Zttp\Zttp;
 
 class Bittrex
 {
@@ -271,7 +271,7 @@ class Bittrex
         $nonce = time();
         $uri   = "https://bittrex.com/api/v1.1/{$path}?apikey={$this->key}&nonce={$nonce}";
 
-        return Http::withHeaders(['apisign' => hash_hmac('sha512', $uri, $this->secret)])
+        return Zttp::withHeaders(['apisign' => hash_hmac('sha512', $uri, $this->secret)])
             ->post($uri, array_filter($arguments))->json();
     }
 }
