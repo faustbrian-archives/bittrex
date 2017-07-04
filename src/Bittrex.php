@@ -98,13 +98,13 @@ class Bittrex
     /**
      * Used to get retrieve the orderbook for a given market.
      *
-     * @param string $market
-     * @param string $type
-     * @param int    $depth
+     * @param string  $market
+     * @param string  $type
+     * @param int|int $depth
      *
      * @return array
      */
-    public function getOrderBook(string $market, string $type, int $depth = 20): array
+    public function getOrderBook(string $market, string $type, ?int $depth = 20): array
     {
         return $this->send('public/getorderbook', compact('market', 'type', 'depth'));
     }
@@ -164,7 +164,7 @@ class Bittrex
     /**
      * Get all orders that you currently have opened.
      *
-     * @param string $market
+     * @param string|null $market
      *
      * @return array
      */
@@ -210,9 +210,10 @@ class Bittrex
     /**
      * Used to withdraw funds from your account.
      *
-     * @param string $currency
-     * @param float  $quantity
-     * @param string $address
+     * @param string      $currency
+     * @param float       $quantity
+     * @param string      $address
+     * @param string|null $paymentid
      *
      * @return array
      */
@@ -235,6 +236,8 @@ class Bittrex
 
     /**
      * Used to retrieve your order history.
+     *
+     * @param string|null $market
      *
      * @return array
      */
