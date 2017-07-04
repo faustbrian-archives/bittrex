@@ -14,7 +14,7 @@
     }],
     "require": {
         "php": "^7.0",
-        "faustbrian/http": "^1.0@dev"
+        "faustbrian/zttp": "^1.0@dev"
     },
     "require-dev": {
         "phpunit/phpunit": "^6.1",
