@@ -3,7 +3,7 @@
 /*
  * This file is part of Bittrex PHP Client.
  *
- * (c) Brian Faust <hello@brianfaust.de>
+ * (c) Brian Faust <hello@brianfaust.me>
  *
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -11,7 +11,7 @@
 
 namespace BrianFaust\Bittrex;
 
-use BrianFaust\Zttp\Zttp;
+use BrianFaust\Http\Http;
 
 class Bittrex
 {
@@ -271,7 +271,8 @@ class Bittrex
         $nonce = time();
         $uri   = "https://bittrex.com/api/v1.1/{$path}?apikey={$this->key}&nonce={$nonce}";
 
-        return Zttp::withHeaders(['apisign' => hash_hmac('sha512', $uri, $this->secret)])
-            ->post($uri, array_filter($arguments))->json();
+        return Http::withHeaders(['apisign' => hash_hmac('sha512', $uri, $this->secret)])
+            ->post($uri, array_filter($arguments))
+            ->json();
     }
 }
