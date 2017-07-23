@@ -37,7 +37,7 @@ class Bittrex
      */
     public function __construct(string $key, string $secret)
     {
-        $this->key    = $key;
+        $this->key = $key;
         $this->secret = $secret;
     }
 
@@ -269,7 +269,7 @@ class Bittrex
     private function send(string $path, array $arguments = []): array
     {
         $nonce = time();
-        $uri   = "https://bittrex.com/api/v1.1/{$path}?apikey={$this->key}&nonce={$nonce}";
+        $uri = "https://bittrex.com/api/v1.1/{$path}?apikey={$this->key}&nonce={$nonce}";
 
         return Http::withHeaders(['apisign' => hash_hmac('sha512', $uri, $this->secret)])
             ->post($uri, array_filter($arguments))
