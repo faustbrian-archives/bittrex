@@ -132,7 +132,7 @@ class Bittrex
      *
      * @return array
      */
-    public function buyLimit(string $market, int $quantity, float $rate): array
+    public function buyLimit(string $market, float $quantity, float $rate): array
     {
         return $this->send('market/buylimit', compact('market', 'quantity', 'rate'));
     }
@@ -146,7 +146,7 @@ class Bittrex
      *
      * @return array
      */
-    public function sellLimit(string $market, int $quantity, float $rate): array
+    public function sellLimit(string $market, float $quantity, float $rate): array
     {
         return $this->send('market/selllimit', compact('market', 'quantity', 'rate'));
     }
