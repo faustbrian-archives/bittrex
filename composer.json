@@ -1,13 +1,21 @@
 {
-    "name": "faustbrian/bittrex-php-client",
+    "name": "plients/bittrex",
     "description": "A developer-experience focused Bittrex client.",
-    "keywords": ["http", "guzzle", "bittrex", "crypto", "trading"],
+    "keywords": [
+        "http",
+        "guzzle",
+        "bittrex",
+        "crypto",
+        "trading"
+    ],
     "license": "MIT",
-    "authors": [{
-        "name": "Brian Faust",
-        "email": "hello@brianfaust.me",
-        "homepage": "https://brianfaust.me"
-    }],
+    "authors": [
+        {
+            "name": "Brian Faust",
+            "email": "hello@basecode.sh",
+            "homepage": "https://basecode.sh"
+        }
+    ],
     "require": {
         "php": "^7.1",
         "faustbrian/http": "^1.0"
@@ -18,12 +26,12 @@
     },
     "autoload": {
         "psr-4": {
-            "BrianFaust\\Bittrex\\": "src/"
+            "Plients\\Bittrex\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "BrianFaust\\Tests\\Bittrex\\": "tests"
+            "Plients\\Tests\\Bittrex\\": "tests"
         }
     },
     "config": {
